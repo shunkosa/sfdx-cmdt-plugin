@@ -1,7 +1,7 @@
 {
   "name": "sfdx-cmdt-plugin",
   "description": "A plugin for Salesforce DX CLI that converts CSV to Custom Metadata records",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Shun Kosaka",
   "bugs": "https://github.com/shunkosa/sfdx-cmdt-plugin/issues",
   "dependencies": {
@@ -48,9 +48,15 @@
   "oclif": {
     "commands": "./lib/commands",
     "topics": {
-      "cmdt": { "description": "commands for custom metadata"},
-      "cmdt:csv": { "description": "handle csv file to load custom metadata records"},
-      "cmdt:field": { "description": "manage field of custom metadata definition"}
+      "cmdt": {
+        "description": "commands for custom metadata"
+      },
+      "cmdt:csv": {
+        "description": "handle csv file to load custom metadata records"
+      },
+      "cmdt:field": {
+        "description": "manage field of custom metadata definition"
+      }
     },
     "devPlugins": [
       "@oclif/plugin-help"
