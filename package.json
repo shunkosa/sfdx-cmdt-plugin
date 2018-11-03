@@ -1,7 +1,7 @@
 {
   "name": "sfdx-cmdt-plugin",
   "description": "A plugin for Salesforce DX CLI that converts CSV to Custom Metadata records",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Shun Kosaka",
   "bugs": "https://github.com/shunkosa/sfdx-cmdt-plugin/issues",
   "dependencies": {
