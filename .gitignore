@@ -1,5 +1,7 @@
 .DS_Store
 oclif.manifest.json
+npm-shrinkwrap.json
+npm-
 .sfdx/
 .vscode/
 lib/
