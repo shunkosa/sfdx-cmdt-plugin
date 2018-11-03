@@ -1,6 +1,8 @@
 .DS_Store
 .sfdx
 .vscode
+lib
+tmp
 
 # Logs
 logs
