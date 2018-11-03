@@ -1,0 +1,17 @@
+{
+    "initCommandDescription": "Create a template csv file for custom metadata records",
+    "convertCommandDescription" : "Convert csv file to xml custom metadata records",
+    "listCommandDescription" : "Show list of fields of custom metadata",
+    "typeDescription": "api name of custom metadata type",
+    "mappingDescription": "column mapping file",
+    "protectedFlagDescription": "set custom metadata records protected",
+    "infoNoCustomFields" : "No custom fields.",
+    "infoProcessFinished" : "Custom metadata record(s) were converted.",
+    "errorInvalidCustomMetadataType" : "Invalid custom metadata type.",
+    "errorCustomMetadataDefinitionNotFound" : "Custom metadata definition was not found.",
+    "errorInvalidMappingFile" :"Invalid mapping file. The following fields were not found. ",
+    "errorInvalidDeveloperName" : "The name must begin with a letter and use only alphanumeric characters and underscores. The name cannot end with an underscore or have two consecutive underscores.",
+    "errorInvalidCSVHeader" : "Invalid csv header. The following fields were not in the csv file. ",
+    "errorInvalidProjectConfigFile" : "Invalid project definition file or it was not found."
+  }
+  
