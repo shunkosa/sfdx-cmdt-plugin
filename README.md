@@ -29,6 +29,6 @@ DeveloperName=API Name
 Label=Display Label
 Field__c=Field
 ```
-
+You can deploy the converted metadata records by `sfdx force:source:deploy -m CustomMetadata`
 ### Show list of custom fields
 `sfdx cmdt:field:list -t Example__mdt`
