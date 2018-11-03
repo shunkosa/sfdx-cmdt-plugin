@@ -3,6 +3,9 @@
 A plugin for Salesforce DX CLI that converts CSV to XML custom metadata records.
 
 ## Setup
+### Install as plugin
+1. Install plugin: `sfdx plugins:install sfdx-cmdt-plugin`
+
 
 ### Install from source
 1. Install the SDFX CLI.
