@@ -15,9 +15,12 @@ A plugin for Salesforce DX CLI that converts CSV to XML custom metadata records.
 
 ## Use
 ### Convert
-`sfdx-cmdt-plugin cmdt:csv:convert records.csv -t Example__mdt`
+`sfdx cmdt:csv:convert records.csv -t Example__mdt`
 
 (Optional) you can use a column mapping file like Data Loader.
+
+`sfdx cmdt:csv:convert records.csv -t Example__mdt -m mapping.txt`
+
 ```
 DeveloperName=API Name
 Label=Display Label
@@ -25,4 +28,4 @@ Field__c=Field
 ```
 
 ### Show list of custom fields
-`sfdx-cmdt-plugin cmdt:field:list -t Example__mdt`
+`sfdx cmdt:field:list -t Example__mdt`
