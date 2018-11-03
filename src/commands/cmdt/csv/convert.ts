@@ -65,7 +65,7 @@ export default class Convert extends SfdxCommand {
         const packageDirList:any = projectJson.get("packageDirectories");
         for(const packageDir of packageDirList){
             if(packageDir.default){
-                this.targetPath = `${projectPath}/${packageDir.path}`;
+                this.targetPath = `${projectPath}/${packageDir.path}/main/default/customMetadata`;
             }
         }
         if(!this.targetPath){
@@ -138,12 +138,16 @@ export default class Convert extends SfdxCommand {
             if (key === 'DeveloperName' || key === 'Label') continue;
             const values = xml.ele('values');
             values.ele('field', key);
-            values.ele('value', { 'xsi:type': this.getCustomMetadataXsiType(key) }, csvRow[key]);
+            if (csvRow[key]){
+                values.ele('value', { 'xsi:type': `xsd:${this.getCustomMetadataXsiType(key)}` }, csvRow[key]);
+            } else {
+                values.ele('value', { 'xsi:nil': true})
+            }       
         }
-        const xmlPath  = this.targetPath + '/main/default/customMetadata/'
+        const xmlPath  = this.targetPath + '/'
          + this.flags.type.slice(0,-5) + '.'
          + csvRow.DeveloperName
-         + '.md';
+         + '.md-meta.xml';
         const fileStream = fs.createWriteStream(xmlPath, { autoClose: true });
         const writer = xmlbuilder.streamWriter(fileStream);
         writer.pretty = true;
