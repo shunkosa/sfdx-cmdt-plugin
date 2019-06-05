@@ -2,9 +2,7 @@ import { core, flags, SfdxCommand } from '@salesforce/command';
 import * as fs from 'fs-extra';
 import * as csvparse from 'csv-parse';
 import * as xmlbuilder from 'xmlbuilder';
-import { on } from 'cluster';
-import { SfdxError, Project, SfdxProjectJson } from '@salesforce/core';
-import { string } from '@oclif/parser/lib/flags';
+import { SfdxError, SfdxProject } from '@salesforce/core';
 
 core.Messages.importMessagesDirectory(__dirname);
 const messages = core.Messages.loadMessages('sfdx-cmdt-plugin', 'cmdt');
@@ -26,7 +24,7 @@ export default class Convert extends SfdxCommand {
     protected static flagsConfig = {
         type: flags.string({ char: 't', required: true, description: messages.getMessage('typeDescription') }),
         mapping: flags.string({ char: 'm', description: messages.getMessage('mappingDescription') }),
-        protected: flags.boolean({ char: 'p', default: false,  description: messages.getMessage('protectedFlagDescription')})
+        protected: flags.boolean({ char: 'p', default: false, description: messages.getMessage('protectedFlagDescription')})
     };
 
     protected static requiresUsername = true;
@@ -59,10 +57,10 @@ export default class Convert extends SfdxCommand {
             }
         }
         //path
-        const project = await Project.resolve();
+        const project = await SfdxProject.resolve();
         const projectPath = project.getPath();
-        const projectJson = await SfdxProjectJson.retrieve<SfdxProjectJson>();
-        const packageDirList:any = projectJson.get("packageDirectories");
+        const projectJson = await project.resolveProjectConfig();
+        const packageDirList:any = projectJson.packageDirectories;
         for(const packageDir of packageDirList){
             if(packageDir.default){
                 this.targetPath = `${projectPath}/${packageDir.path}/main/default/customMetadata`;
@@ -115,7 +113,7 @@ export default class Convert extends SfdxCommand {
                     }
                 }
             
-                if (csvRow.DeveloperName.match(/(^\d|^_|__|[^0-9A-Za-z]|_$)/)) {
+                if (csvRow.DeveloperName.match(/(^\d|^_|__|[^0-9A-Za-z_]|_$)/)) {
                     console.log(`line ${rowcount}, DeveloperName=${csvRow.DeveloperName} : ${messages.getMessage('errorInvalidDeveloperName')}`);
                 } else {
                     this.generateMetadataRecord(csvRow);
