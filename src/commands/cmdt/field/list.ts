@@ -1,10 +1,5 @@
 import { core, flags, SfdxCommand } from '@salesforce/command';
-import * as fs from 'fs-extra';
-import * as csvparse from 'csv-parse';
-import * as xmlbuilder from 'xmlbuilder';
-import { on } from 'cluster';
-import { SfdxError, Project, SfdxProjectJson } from '@salesforce/core';
-import { string } from '@oclif/parser/lib/flags';
+import { SfdxError } from '@salesforce/core';
 
 core.Messages.importMessagesDirectory(__dirname);
 const messages = core.Messages.loadMessages('sfdx-cmdt-plugin', 'cmdt');
