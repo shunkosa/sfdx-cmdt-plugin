@@ -1,5 +1,9 @@
 # sfdx-cmdt-plugin
 
+[![Version](https://img.shields.io/npm/v/sfdx-cmdt-plugin.svg)](https://npmjs.org/package/sfdx-cmdt-plugin)
+[![Downloads/week](https://img.shields.io/npm/dw/sfdx-cmdt-plugin.svg)](https://npmjs.org/package/sfdx-cmdt-plugin)
+[![License](https://img.shields.io/npm/l/sfdx-cmdt-plugin.svg)](https://github.com/shunkosa/sfdx-cmdt-plugin/blob/master/package.json)
+
 A plugin for Salesforce DX CLI that converts CSV to XML custom metadata records.
 
 ## Setup
