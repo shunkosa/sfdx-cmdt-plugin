@@ -137,7 +137,7 @@ export default class Convert extends SfdxCommand {
             const values = xml.ele('values');
             values.ele('field', key);
             if (csvRow[key]){
-                values.ele('value', { 'xsi:type': `xsd:${this.getCustomMetadataXsiType(key)}` }, csvRow[key]);
+                values.ele('value', { 'xsi:type': `xsd:${this.getCustomMetadataXsiType(this.fullNameToTypeMap.get(key))}` }, csvRow[key]);
             } else {
                 values.ele('value', { 'xsi:nil': true})
             }       
