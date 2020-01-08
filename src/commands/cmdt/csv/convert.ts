@@ -148,9 +148,9 @@ export default class Convert extends SfdxCommand {
          + '.md-meta.xml';
         const fileStream = fs.createWriteStream(xmlPath, { autoClose: true });
         const writer = xmlbuilder.streamWriter(fileStream);
-        writer.pretty = true;
-        writer.newline = '\n';
-        writer.indent = '    ';
+        writer.options.pretty = true;
+        writer.options.newline = '\n';
+        writer.options.indent = '    ';
         xml.end(writer);
         this.countSuccess++;
         }
