@@ -1,6 +1,6 @@
 import { core, flags, SfdxCommand } from '@salesforce/command';
 import * as fs from 'fs-extra';
-import * as csvparse from 'csv-parse';
+const csvparse = require('csv-parse')
 import * as xmlbuilder from 'xmlbuilder';
 import { SfdxError, SfdxProject } from '@salesforce/core';
 
