@@ -6,7 +6,6 @@ npm-
 .vscode/
 lib/
 tmp/
-package-lock.json
 
 # Logs
 logs
